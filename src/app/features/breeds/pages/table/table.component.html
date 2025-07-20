@@ -1,0 +1,25 @@
+<div class="container mt-4">
+  <h2>Tabla de Razas</h2>
+
+  <div class="input-group mt-3">
+    <input type="text" [(ngModel)]="query" class="form-control" placeholder="Buscar raza">
+    <button class="btn btn-primary" (click)="search()">Buscar</button>
+  </div>
+
+  <table class="table table-striped mt-4" *ngIf="breeds.length">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Origen</th>
+        <th>Temperamento</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let breed of breeds">
+        <td>{{ breed.name }}</td>
+        <td>{{ breed.origin }}</td>
+        <td>{{ breed.temperament }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

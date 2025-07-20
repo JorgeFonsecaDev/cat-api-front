@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <h2>Razas de Gatos</h2>
+
+  <div class="form-group mt-3">
+    <label for="breedSelect">Selecciona una raza:</label>
+    <select id="breedSelect" class="form-control" [(ngModel)]="selectedBreedId" (change)="onSelect()">
+      <option *ngFor="let breed of breeds" [value]="breed.id">{{ breed.name }}</option>
+    </select>
+  </div>
+
+  <div *ngIf="selectedBreed" class="mt-4">
+    <h3>{{ selectedBreed.name }}</h3>
+    <p>{{ selectedBreed.description }}</p>
+
+    <div class="carousel slide mt-3" data-ride="carousel" *ngIf="images.length">
+      <div class="carousel-inner">
+        <div class="carousel-item" *ngFor="let img of images; let i = index" [class.active]="i === 0">
+          <img [src]="img.url" class="d-block w-100 img-fluid" alt="Gato">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
